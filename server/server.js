@@ -17,6 +17,7 @@ wss.on("connection", function connection(ws) {
     console.error("WebSocket Error:", error);
   });
 
+
   ws.on("message", function message(data) {
     try {
       const message = JSON.parse(data);
@@ -90,6 +91,7 @@ wss.on("connection", function connection(ws) {
       console.error("Error processing message:", err);
     }
   });
+
 
   ws.on("close", () => {
     if (ws === senderSocket) senderSocket = null;
